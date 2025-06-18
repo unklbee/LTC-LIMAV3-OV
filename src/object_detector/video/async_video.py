@@ -386,6 +386,17 @@ class AsyncVideo:
 
     # ───────────────────── teardown ──────────────────────────────────
     def stop(self):
-        self._stop_requested.set(); self._running.clear()
+        self._stop_requested.set()
+        self._running.clear()
+
+        # Flush any remaining counts before shutting down workers
+        if self._save_enabled.is_set():
+            try:
+                self._flush_counts_once()
+            except Exception as e:  # pragma: no cover - log only
+                logger.warning("Final count flush failed: %s", e)
+
         self.cap.release()
-        self._capture_thread.join(); self._inference_thread.join(); self._save_thread.join()
+        self._capture_thread.join()
+        self._inference_thread.join()
+        self._save_thread.join()
