@@ -1,0 +1,3 @@
+[console_scripts]
+odetect = object_detector.cli:main
+odetect-gui = object_detector.gui.main_window:main

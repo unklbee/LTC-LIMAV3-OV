@@ -1,0 +1,26 @@
+Metadata-Version: 2.4
+Name: object_detector
+Version: 0.1.0
+Summary: Lightweight object detection toolkit with CLI and GUI
+Author: Hasbi
+License: MIT
+Classifier: Programming Language :: Python :: 3.10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Requires-Dist: opencv-python>=4.11.0.86
+Requires-Dist: numpy>=2.2.5
+Requires-Dist: PySide6>=6.9.0
+Provides-Extra: cpu
+Requires-Dist: onnxruntime>=1.21.1; extra == "cpu"
+Provides-Extra: gpu
+Requires-Dist: onnxruntime-gpu>=1.21.1; extra == "gpu"
+Provides-Extra: dml
+Requires-Dist: onnxruntime-directml>=1.14; extra == "dml"
+Dynamic: author
+Dynamic: classifier
+Dynamic: license
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary

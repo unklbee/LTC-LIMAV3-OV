@@ -1,0 +1,12 @@
+opencv-python>=4.11.0.86
+numpy>=2.2.5
+PySide6>=6.9.0
+
+[cpu]
+onnxruntime>=1.21.1
+
+[dml]
+onnxruntime-directml>=1.14
+
+[gpu]
+onnxruntime-gpu>=1.21.1
