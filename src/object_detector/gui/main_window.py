@@ -34,7 +34,7 @@ from .widgets.database_settings_panel  import DatabaseSettingsPanel
 from .widgets.menu_panel               import setup_menubar
 
 logger = logging.getLogger(__name__)
-logging.basicConfig(level=logging.WARNING)
+logging.basicConfig(level=Config.get_log_level())
 
 @contextmanager
 def block_signals(widgets: List[QWidget]):
