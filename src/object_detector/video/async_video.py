@@ -80,15 +80,6 @@ class AsyncVideo:
         # ── buffers
         self._buf_in = Queue(maxsize=2)
 
-        # ── DB setup
-        try:
-            self.db = CountDatabase(str(Config.DB_PATH))
-        except Exception as e:
-            self.db = None
-            logger.warning("CountDatabase init failed: %s", e)
-        self._save_interval = Config.COUNT_SAVE_INTERVAL_SEC
-        self.camera_id      = id(self)
-
         # ── DB setup: gunakan parameter, fallback ke Config
         self.db_path = db_path or str(Config.DB_PATH)
         self.host_id = host_id or Config.HOST_ID
