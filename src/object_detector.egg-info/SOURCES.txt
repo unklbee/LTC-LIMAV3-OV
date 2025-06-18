@@ -14,7 +14,6 @@ src/object_detector.egg-info/dependency_links.txt
 src/object_detector.egg-info/entry_points.txt
 src/object_detector.egg-info/requires.txt
 src/object_detector.egg-info/top_level.txt
-src/object_detector/gui/0video_thread.py
 src/object_detector/gui/__init__.py
 src/object_detector/gui/__main__.py
 src/object_detector/gui/coords.py
