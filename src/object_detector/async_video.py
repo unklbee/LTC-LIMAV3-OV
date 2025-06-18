@@ -329,7 +329,11 @@ class AsyncVideo:
                     cls_id = self.track_classes.get(tid)
                     if cls_id is not None and cls_id in self.counts:
                         self.counts[cls_id] += 1
-                        print(f"[DEBUG] Counted {self.names[cls_id]}! Total {self.counts[cls_id]}")
+                        logger.debug(
+                            "Counted %s! Total %d",
+                            self.names[cls_id],
+                            self.counts[cls_id],
+                        )
                         # 🚀 Kirim count ke GUI langsung di sini:
                         if self.on_count:
                             snapshot = {i: c for i, c in self.counts.items() if c > 0}

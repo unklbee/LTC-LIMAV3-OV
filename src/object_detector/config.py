@@ -4,6 +4,8 @@ from pathlib import Path
 from typing import Tuple, List, Dict
 from zoneinfo import ZoneInfo
 import openvino as ov
+import os
+import logging
 
 
 class Config:
@@ -26,6 +28,14 @@ class Config:
     # host identifier default
     HOST_ID: str = "default-host"
     TIMEZONE: ZoneInfo = ZoneInfo("Asia/Jakarta")
+
+    # logging
+    LOG_LEVEL: str = os.getenv("LIMA_LOG_LEVEL", "WARNING").upper()
+
+    @classmethod
+    def get_log_level(cls) -> int:
+        """Return logging level as int for logging.basicConfig."""
+        return getattr(logging, cls.LOG_LEVEL, logging.WARNING)
 
     # OpenVINO devices - replaced ONNX providers
     OPENVINO_DEVICES: List[str] = ["GPU", "CPU", "AUTO"]
